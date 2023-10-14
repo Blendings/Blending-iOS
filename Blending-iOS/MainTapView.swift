@@ -2,13 +2,18 @@ import SwiftUI
 
 struct MainTapView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Text("홈")
+                .tabItem {
+                    Taps.home.imageItem
+                    Taps.home.textItem
+                }
+            Text("설정")
+                .tabItem {
+                    Taps.setting.imageItem
+                    Taps.setting.textItem
+                }
         }
-        .padding()
     }
 }
 
