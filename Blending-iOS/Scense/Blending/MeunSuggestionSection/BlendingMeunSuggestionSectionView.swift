@@ -12,7 +12,7 @@ struct BlendingMeunSuggestionSectionView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(BlendingMeun.sample) { m in
-                    BlendingMeunSuggestionItemView()
+                    BlendingMeunSuggestionItemView(meun: m)
                 }
             }
         }

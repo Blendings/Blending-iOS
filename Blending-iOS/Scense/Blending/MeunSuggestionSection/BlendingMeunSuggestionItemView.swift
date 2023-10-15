@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct BlendingMeunSuggestionItemView: View {
+    var meun: BlendingMeun
+    
     var body: some View {
         VStack {
-            Image("sampleImage1")
+            meun.image
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 100.0, height: 100.0)
-            Text("샘플 이미지")
+            Text(meun.name)
                 .font(.caption)
         }
     }
