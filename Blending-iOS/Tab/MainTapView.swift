@@ -3,7 +3,7 @@ import SwiftUI
 struct MainTapView: View {
     var body: some View {
         TabView {
-            Text("홈")
+            HomeView()
                 .tabItem {
                     Taps.home.imageItem
                     Taps.home.textItem
