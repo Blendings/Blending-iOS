@@ -38,17 +38,32 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct BlendingWidgetEntryView : View {
-    var entry: Provider.Entry
+  @Environment(\.widgetFamily) var family: WidgetFamily
+  var entry: Provider.Entry
 
-    var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+  @ViewBuilder
+  var body: some View {
+    switch self.family {
+    case .systemSmall:
+        Image("sampleImage2")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    case .systemMedium:
+        Image("sampleImage2")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    case .systemLarge:
+        Image("sampleImage2")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    case .systemExtraLarge:
+        Image("sampleImage2")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    @unknown default:
+      Text("default")
     }
+  }
 }
 
 //여기서 설정할 때 뜬다
