@@ -48,18 +48,22 @@ struct BlendingWidgetEntryView : View {
         Image("sampleImage2")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .cornerRadius(20.0)
     case .systemMedium:
         Image("sampleImage2")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .cornerRadius(20.0)
     case .systemLarge:
         Image("sampleImage2")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .cornerRadius(20.0)
     case .systemExtraLarge:
         Image("sampleImage2")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .cornerRadius(20.0)
     @unknown default:
       Text("default")
     }
