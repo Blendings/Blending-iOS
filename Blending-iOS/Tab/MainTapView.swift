@@ -8,7 +8,7 @@ struct MainTapView: View {
                     Taps.home.imageItem
                     Taps.home.textItem
                 }
-            Text("설정")
+            OtherView()
                 .tabItem {
                     Taps.setting.imageItem
                     Taps.setting.textItem
