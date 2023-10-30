@@ -13,6 +13,11 @@ struct MainTapView: View {
                     Taps.setting.imageItem
                     Taps.setting.textItem
                 }
+            ExRouletteView()
+                .tabItem {
+                    Taps.roulette.imageItem
+                    Taps.roulette.textItem
+                }
         }
     }
 }
