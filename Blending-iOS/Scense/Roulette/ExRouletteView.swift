@@ -57,25 +57,31 @@ struct ExRouletteView: View {
                     .font(.title)
                     .padding(.top, 10)
             }
-            
-            List {
-                ForEach(punishments.indices, id: \.self) { index in
-                    HStack {
-                        Text(punishments[index])
-                            .font(.title)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            showDeleteAlert(at: index)
-                        }) {
-                            Image(systemName: "trash")
-                                .foregroundColor(.red)
+            VStack {
+                HStack {
+                    Text("리스트")
+                        .font(.headline)
+                }
+                .padding(.leading, 16.0)
+                List {
+                    ForEach(punishments.indices, id: \.self) { index in
+                        HStack {
+                            Text(punishments[index])
+                                .font(.title2)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                showDeleteAlert(at: index)
+                            }) {
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                            }
                         }
                     }
                 }
+                .scrollContentBackground(.hidden)
             }
-            .scrollContentBackground(.hidden)
         }
         .alert(isPresented: $showAlert) {
             Alert(
