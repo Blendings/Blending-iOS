@@ -56,7 +56,7 @@ struct ProfileSettingView: View {
                 )
             }
             .fullScreenCover(isPresented: $isNextViewPresented) {
-                NextView(selectedDate: selectDate)
+                DayView(selectedDate: selectDate)
             }
         }
     }
