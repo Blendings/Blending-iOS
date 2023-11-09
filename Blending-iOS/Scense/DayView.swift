@@ -11,7 +11,22 @@ struct NextView: View {
         let components = cal.dateComponents([.day], from: selectedDate, to: currentDate)
         let daysPassed = components.day ?? 0
         
-        return Text("D-\(daysPassed)일")
-            .font(.largeTitle)
+        VStack {
+            Text("처음 만난 날")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                        
+            Text("D-\(daysPassed)")
+                .font(.subheadline)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 10)
+            
+            Spacer()
+        }
     }
 }
+
+#Preview {
+    NextView(selectedDate: Date())
+}
+
