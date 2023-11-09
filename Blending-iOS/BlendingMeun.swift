@@ -1,10 +1,3 @@
-//
-//  BlendingMeun.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 10/15/23.
-//
-
 import SwiftUI
 
 public struct BlendingMeun: Identifiable {

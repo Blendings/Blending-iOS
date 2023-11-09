@@ -1,10 +1,3 @@
-//
-//  DayView.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 11/6/23.
-//
-
 import SwiftUI
 
 struct NextView: View {

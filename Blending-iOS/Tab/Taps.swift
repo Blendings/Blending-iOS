@@ -1,10 +1,3 @@
-//
-//  Taps.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 10/14/23.
-//
-
 import SwiftUI
 
 public enum Taps {

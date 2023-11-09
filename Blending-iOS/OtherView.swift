@@ -1,10 +1,3 @@
-//
-//  OtherView.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 10/29/23.
-//
-
 import SwiftUI
 
 struct OtherView: View {
