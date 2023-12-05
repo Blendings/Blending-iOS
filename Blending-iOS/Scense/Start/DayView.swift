@@ -22,11 +22,11 @@ struct DayView: View {
 
         VStack {
             Text("처음 만난 날")
-                .font(.headline)
+                .font(.headlineKyoboHandWriting)
                 .frame(maxWidth: .infinity)
 
             Text("D-\(daysPassed)")
-                .font(.subheadline)
+                .font(.subheadlineKyoboHandWriting)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 10)
 
@@ -36,7 +36,7 @@ struct DayView: View {
                 VStack {
                     ProfileImageView(image: $firstImage, isEditing: $isEditingFirstProfile)
                     Text("남친")
-                        .font(.headline)
+                        .font(.headlineKyoboHandWriting)
                 }
 
                 Image(systemName: "sun.min.fill")
@@ -45,7 +45,7 @@ struct DayView: View {
                 VStack {
                     ProfileImageView(image: $secondImage, isEditing: $isEditingSecondProfile)
                     Text("여친")
-                        .font(.headline)
+                        .font(.headlineKyoboHandWriting)
                 }
             }
             
@@ -57,7 +57,7 @@ struct DayView: View {
             isImagePickerPresented = true
         }) {
             Text("배경 이미지 변경")
-                .font(.headline)
+                .font(.headlineKyoboHandWriting)
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(.white)

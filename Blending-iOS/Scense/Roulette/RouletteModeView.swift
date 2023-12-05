@@ -27,7 +27,7 @@ struct RouletteModeSectionItemView: View {
                 .frame(width: 180.0, height: 180.0)
             Text(rouletteModel.title)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .font(.title2)
+                .font(.title2KyoboHandWriting)
         }
         .frame(maxWidth: .infinity)
     }

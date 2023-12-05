@@ -15,8 +15,10 @@ struct SettingView: View {
             }
             Button("회원 정보 수정") {}
                 .accentColor(.black)
+                .font(.title3KyoboHandWriting)
             Button("회원 탈퇴") {}
                 .accentColor(.black)
+                .font(.title3KyoboHandWriting)
         }
             .navigationTitle("설정")
             .listStyle(GroupedListStyle())
@@ -29,19 +31,20 @@ struct SettingUserInfoSectionView: View {
         HStack {
             VStack(alignment: .leading, spacing: 4.0) {
                 Text(User.shared.username)
-                    .font(.title)
+                    .font(.titleKyoboHandWriting)
                 Text(User.shared.account)
-                    .font(.caption)
+                    .font(.captionKyoboHandWriting)
             }
             Spacer()
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Text("로그아웃")
                     .accentColor(.green)
-                    .font(.system(size: 14.0, weight: .bold, design: .default))
+                    .font(.footnoteKyoboHandWriting)
             }
             .padding(8.0)
             .overlay(Capsule().stroke(Color.green))
         }
+        .background(Image("BackgroundImage"))
     }
 }
 

@@ -21,7 +21,7 @@ struct DatePickerView: View {
             Button("확인") {
                 self.presentationMode.wrappedValue.dismiss()
             }
-            .font(.largeTitle)
+            .font(.largeTitleKyoboHandWriting)
             .foregroundColor(.gray)
         }
     }

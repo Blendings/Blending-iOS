@@ -11,7 +11,7 @@ struct ExRouletteView: View {
     var body: some View {
         VStack {
             Text("커스텀 벌칙 룰렛")
-                .font(.largeTitle)
+                .font(.largeTitleKyoboHandWriting)
                 .padding(.top, 20)
             
             TextField("벌칙 입력", text: $currentPunishment)
@@ -23,7 +23,7 @@ struct ExRouletteView: View {
                     addPunishment()
                 }) {
                     Text("추가")
-                        .font(.headline)
+                        .font(.headlineKyoboHandWriting)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 20)
                         .background(Color.green)
@@ -35,7 +35,7 @@ struct ExRouletteView: View {
                     selectRandomPunishment()
                 }) {
                     Text("랜덤 선택")
-                        .font(.headline)
+                        .font(.headlineKyoboHandWriting)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 20)
                         .background(Color.blue)
@@ -47,20 +47,20 @@ struct ExRouletteView: View {
             
             if !punishments.isEmpty {
                 Text("선택된 벌칙: \(selectedPunishment)")
-                    .font(.title)
+                    .font(.titleKyoboHandWriting)
                     .padding(.top, 10)
             }
             VStack {
                 HStack {
                     Text("리스트")
-                        .font(.headline)
+                        .font(.headlineKyoboHandWriting)
                 }
                 .padding(.leading, 16.0)
                 List {
                     ForEach(punishments.indices, id: \.self) { index in
                         HStack {
                             Text(punishments[index])
-                                .font(.title2)
+                                .font(.title2KyoboHandWriting)
                             
                             Spacer()
                             

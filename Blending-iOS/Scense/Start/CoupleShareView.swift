@@ -15,15 +15,15 @@ struct CoupleShareView: View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 20) {
                 Text("서로에 코드를 공유해주세요 ❤️")
-                    .font(.title)
+                    .font(.titleKyoboHandWriting)
                     .lineSpacing(10)
                 Text("내 초대 코드")
-                    .font(.footnote)
+                    .font(.footnoteKyoboHandWriting)
                     .padding(.bottom, 10)
                 CustomAuthTextField(placeholder: "나의 초대 코드", text: $myCode)
                     .keyboardType(.emailAddress)
                 Text("상대방 초대 코드를 넣어주세요")
-                    .font(.footnote)
+                    .font(.footnoteKyoboHandWriting)
                     .padding(.bottom, 10)
                 CustomAuthTextField(placeholder: "패스워드", text: $opponentCode)
 
@@ -34,7 +34,7 @@ struct CoupleShareView: View {
                         isNextViewActive = true
                     }) {
                         Text("회원가입")
-                            .font(.title)
+                            .font(.titleKyoboHandWriting)
                             .padding()
                             .background(Color.blue)
                             .foregroundColor(.white)

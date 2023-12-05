@@ -7,7 +7,7 @@ struct RouletteHeaderView: View {
                 Text("""
                 어떤 벌칙으로 할까요?
                 """)
-                .font(.largeTitle)
+                .font(.largeTitleKyoboHandWriting)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }

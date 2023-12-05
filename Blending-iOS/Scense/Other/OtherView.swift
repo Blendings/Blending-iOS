@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OtherView: View {
     init() {
-        UITableView.appearance().backgroundColor = .systemBackground
+        UITableView.appearance().backgroundColor = .clear
     }
 
     var body: some View {
@@ -18,15 +18,16 @@ struct OtherView: View {
                     }
                 }
             }
-                .listStyle(GroupedListStyle())
-                .navigationTitle("Other")
-                .toolbar {
-                    NavigationLink(
-                        destination: SettingView(),
-                        label: {
-                            Image(systemName: "gear")
-                        })
-                }
+            .listStyle(GroupedListStyle())
+            .font(.title3KyoboHandWriting)
+            .navigationTitle("Other")
+            .toolbar {
+                NavigationLink(
+                    destination: SettingView(),
+                    label: {
+                        Image(systemName: "gear")
+                    })
+            }
         }
     }
 }
