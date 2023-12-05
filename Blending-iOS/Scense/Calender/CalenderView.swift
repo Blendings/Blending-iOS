@@ -20,6 +20,7 @@ struct CalenderView: View {
             Spacer()
         }
         .padding()
+        .background(Image("BackgroundImage"))
     }
 }
 

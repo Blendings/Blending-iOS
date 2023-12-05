@@ -13,6 +13,7 @@ struct BlogView: View {
             Spacer()
         }
         .padding()
+        .background(Image("BackgroundImage"))
     }
 }
 

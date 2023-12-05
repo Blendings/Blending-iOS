@@ -13,6 +13,7 @@ struct DiaryView: View {
             Spacer()
         }
         .padding()
+        .background(Image("BackgroundImage"))
     }
 }
 
