@@ -9,6 +9,6 @@ struct RouletteMode: Identifiable {
     
     static let sample: [RouletteMode] = [
         RouletteMode(image: Image("sampleImage1"), title: "기본 벌칙", destinationView: AnyView(RouletteView2())),
-        RouletteMode(image: Image("sampleImage1"), title: "커스텀 벌칙", destinationView: AnyView(ExRouletteView()))
+        RouletteMode(image: Image("sampleImage1"), title: "커스텀 벌칙", destinationView: AnyView(ExRouletteView())),
     ]
 }
