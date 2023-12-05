@@ -8,6 +8,7 @@ struct HomeView: View {
             Spacer(minLength: 32.0)
             EventsSectionView()
         }
+        .background(Image("BackgroundImage"))
     }
 }
 
