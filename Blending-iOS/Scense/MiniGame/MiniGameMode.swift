@@ -8,6 +8,6 @@ struct MiniGameMode: Identifiable {
     let destinationView: AnyView
     
     static let sample: [MiniGameMode] = [
-        MiniGameMode(image: Image(""), title: "홀짝 게임", destinationView: AnyView(OddOrEvenView(initialAmount: "")))
+        MiniGameMode(image: Image("sampleImage1"), title: "홀짝 게임", destinationView: AnyView(OddOrEvenView(initialAmount: "")))
     ]
 }

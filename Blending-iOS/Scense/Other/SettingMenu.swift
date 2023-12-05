@@ -34,7 +34,7 @@ public enum Menu: String, CaseIterable, Identifiable {
             case .penalty:
                 return AnyView(RouletteView())
             case .miniGame:
-                return AnyView(Text("Placeholder for \(serviceCase.title)"))
+                return AnyView(MiniGameView())
             default:
                 return AnyView(Text("Placeholder for \(serviceCase.title)"))
             }

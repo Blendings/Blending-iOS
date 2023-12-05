@@ -1,8 +1,16 @@
-//
-//  MiniGameHeaderView.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 12/5/23.
-//
+import SwiftUI
 
-import Foundation
+struct MiniGameHeaderView: View {
+    var body: some View {
+        VStack(spacing: 16.0) {
+            HStack(alignment: .top) {
+                Text("""
+                우리 어떤 게임 할까요?
+                """)
+                .font(.largeTitleKyoboHandWriting)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .padding(16.0)
+    }
+}

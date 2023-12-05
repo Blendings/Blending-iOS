@@ -1,8 +1,16 @@
-//
-//  MiniGameView.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 12/5/23.
-//
+import SwiftUI
 
-import Foundation
+struct MiniGameView: View {
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack(spacing: 16.0) {
+                MiniGameHeaderView()
+                MiniGameModeView()
+            }
+        }
+        .navigationBarTitle("미니게임", displayMode: .inline)
+    }
+}
+#Preview {
+    RouletteView()
+}
