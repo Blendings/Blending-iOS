@@ -1,12 +1,13 @@
 import Foundation
+import SwiftUI
 
-enum Menu: String, CaseIterable, Identifiable {
+public enum Menu: String, CaseIterable, Identifiable {
     case service = "서비스"
     case sh = "공유"
     case terms = "약관 및 정책"
 
     var title: String { rawValue }
-    var id: String { rawValue }
+    public var id: String { rawValue }
 
     var menu: [String] {
         switch self {
@@ -16,16 +17,28 @@ enum Menu: String, CaseIterable, Identifiable {
         }
     }
 
-    enum Service: String, CaseIterable, Identifiable {
+    public enum Service: String, CaseIterable, Identifiable {
         case penalty = "벌칙"
         case miniGame = "미니게임"
         case memo = "메모"
-        case theme = "테마 변경"
         case receipt = "영수증"
         case bucketList = "버킷리스트"
+        case theme = "테마 변경"
+        case appLogo = "앱 로고 변경"
 
         var title: String { rawValue }
-        var id: String { rawValue }
+        public var id: String { rawValue }
+        
+        public func viewForServiceCase(_ serviceCase: Menu.Service) -> some View {
+            switch serviceCase {
+            case .penalty:
+                return AnyView(RouletteView())
+            case .miniGame:
+                return AnyView(Text("Placeholder for \(serviceCase.title)"))
+            default:
+                return AnyView(Text("Placeholder for \(serviceCase.title)"))
+            }
+        }
     }
 
     enum SH: String, CaseIterable, Identifiable {

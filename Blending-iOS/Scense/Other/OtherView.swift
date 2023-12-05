@@ -1,10 +1,6 @@
 import SwiftUI
 
 struct OtherView: View {
-    init() {
-        UITableView.appearance().backgroundColor = .clear
-    }
-
     var body: some View {
         NavigationView {
             List {
@@ -13,7 +9,15 @@ struct OtherView: View {
                         header: Text(section.title)
                     ) {
                         ForEach(section.menu, id: \.hashValue) { raw in
-                            NavigationLink(raw, destination: Text("\(raw)"))
+                            if let serviceCase = Menu.Service(rawValue: raw) {
+                                NavigationLink(raw, destination: serviceCase.viewForServiceCase(serviceCase))
+                            } else {
+                                if let serviceCase = Menu.Service(rawValue: raw) {
+                                    NavigationLink(raw, destination: serviceCase.viewForServiceCase(serviceCase))
+                                } else {
+                                    NavigationLink(raw, destination: Text("\(raw)"))
+                                }
+                            }
                         }
                     }
                 }
@@ -31,6 +35,7 @@ struct OtherView: View {
         }
     }
 }
+
 
 #Preview {
     OtherView()

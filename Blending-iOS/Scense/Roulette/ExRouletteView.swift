@@ -75,7 +75,7 @@ struct ExRouletteView: View {
                 }
                 .scrollContentBackground(.hidden)
             }
-        }
+        }        
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("알림"),

@@ -2,16 +2,26 @@ import SwiftUI
 
 struct RouletteModeView: View {
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(RouletteMode.sample) { rm in
-                    RouletteModeSectionItemView(rouletteModel: rm)
+                    RouletteModeLinkView(rouletteModel: rm)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16.0)
+        }
+    }
+}
+
+struct RouletteModeLinkView: View {
+    let rouletteModel: RouletteMode
+
+    var body: some View {
+        NavigationLink(destination: rouletteModel.destinationView) {
+            RouletteModeSectionItemView(rouletteModel: rouletteModel)
         }
     }
 }
