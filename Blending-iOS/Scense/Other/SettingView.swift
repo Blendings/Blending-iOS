@@ -9,7 +9,7 @@ struct SettingView: View {
             Button("회원 정보 수정") {}
                 .accentColor(.black)
                 .font(.title3KyoboHandWriting)
-            Button("회원 탈퇴") {}
+            Button("이별") {}
                 .accentColor(.black)
                 .font(.title3KyoboHandWriting)
         }

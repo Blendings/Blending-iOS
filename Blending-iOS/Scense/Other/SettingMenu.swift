@@ -22,7 +22,7 @@ public enum Menu: String, CaseIterable, Identifiable {
         case miniGame = "미니게임"
         case memo = "메모"
         case receipt = "영수증"
-        case bucketList = "버킷리스트"
+        case challenge = "챌린지"
         case theme = "테마 변경"
         case appLogo = "앱 로고 변경"
 
