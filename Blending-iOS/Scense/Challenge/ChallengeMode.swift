@@ -1,21 +1,121 @@
-//
-//  ChallengeMode.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 12/5/23.
-//
-
 import SwiftUI
+import Combine
 
-struct ChallengeMode: Identifiable {
-    let id = UUID()
-    
+class ChallengeMode: ObservableObject, Identifiable {
+    var id = UUID()
     let image: Image
     let title: String
     let destinationView: AnyView? = AnyView(_fromValue: "")
-    let successCheck: Bool
+    var successCheck: Bool
+    @Published var challengeModeImage: UIImage?
+
+    init(image: Image, title: String, successCheck: Bool) {
+        self.image = image
+        self.title = title
+        self.successCheck = successCheck
+    }
     
     static let sample: [ChallengeMode] = [
-        ChallengeMode(image: Image("sampleImage1"), title: "ㄱ", successCheck: false)
+        ChallengeMode(image: Image("sampleImage2"), title: "꽃구경 가기", successCheck: true),
+        ChallengeMode(image: Image("sampleImage2"), title: "꽃선물 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "인생네컷 or 스티커 사진", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "거울셀카", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "연극 관람", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "보드게임 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "시그니처 포즈 만들기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "휴대폰 커플 배경화면", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "전시회 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "호캉스", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "공방 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "도서관 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "이색 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "방탈출 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "볼링 치기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "PC방 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "노래방에서 노래 불러주기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "오락실 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "마트에서 장보기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "롤러장 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "자전거 타기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "한강 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "도시락 싸서 피크닉", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "만화 카페", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "집콕 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "당일치기 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "기차 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "교복 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "놀이공원 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함께 클래스 듣기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "취미 생활 함께하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "커플 아이템 맞추기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "커플룩 입고 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "아쿠아리움 가시", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "식물원 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "낚시 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "제주도 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "일본 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "워터파크 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "바다 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "동물원 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "목장 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "동물카페 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "백화점 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "전통시장 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "케이블카 타기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "관람차 타기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "스포츠 경기 직관", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "야경 보러가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "별 보러가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "남자친구 집 놀러가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "여자친구 집 놀러가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "기념일 파티", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "깜짝 이벤트 해주기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "남자친구 생일파티 해주기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "여자친구 생일파티 해주기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "한복입고 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "궁궐 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "파자마 파티", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함께 춤추기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "등산 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "단풍 구경", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "할로윈 코스프레", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "캠핑", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함께 운동하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "추억의 장소 다시 가보기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "계곡에서 물놀이", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "갯벌 체험", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "포장마차 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "스튜디오에서 사진 촬영", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "찜질방 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "커플 스파", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함께 팩하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "여자친구 머리 말려주기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "자동차극장 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "평소와 다른 이색 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "내기 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "서로의 얼굴에 낙서 해보기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "가구 구경 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "근사한 레스토랑에서 식사", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "심야 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "더블 데이트", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "콘서트 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "커플링 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "옛날 교복 입어보기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "눈사람 만들기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "눈썰매장 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "아이스링크장 가기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "불꽃 놀이", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "일출 보기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함께 새해맞이", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "기념일 케이크 만들기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "크리스마스 파티", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "스냅 사진 촬영", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "옷 바꿔입고 사진찍기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "봉사활동 하기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "함꼐 건강검진 받기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "결혼식에 함께 하객 참석", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "해외 여행", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "사계절 사진 남기기", successCheck: false),
+        ChallengeMode(image: Image("sampleImage2"), title: "결혼 하기", successCheck: false),
     ]
 }
