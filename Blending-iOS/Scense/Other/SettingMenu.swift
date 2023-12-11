@@ -35,6 +35,8 @@ public enum Menu: String, CaseIterable, Identifiable {
                 return AnyView(RouletteView())
             case .miniGame:
                 return AnyView(MiniGameView())
+            case .challenge:
+                return AnyView(ChallengeView())
             default:
                 return AnyView(Text("Placeholder for \(serviceCase.title)"))
             }
