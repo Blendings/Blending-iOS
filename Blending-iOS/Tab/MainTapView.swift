@@ -5,26 +5,37 @@ var isUserLoggedIn = false
 struct MainTapView: View {
     
     var body: some View {
-        if isUserLoggedIn {
-            TabView {
-                HomeView()
-                    .tabItem {
-                        Taps.home.imageItem
-                        Taps.home.textItem
-                    }
-                OtherView()
-                    .tabItem {
-                        Taps.setting.imageItem
-                        Taps.setting.textItem
-                    }
-                ExRouletteView()
-                    .tabItem {
-                        Taps.roulette.imageItem
-                        Taps.roulette.textItem
-                    }
-            }
-        } else {
-            OnboardingView()
+        TabView {
+            HomeView() 
+                .tabItem {
+                    Taps.home.imageItem
+                    Taps.home.textItem
+                }
+            
+            BlogView()
+                .tabItem {
+                    Taps.blog.imageItem
+                    Taps.blog.textItem
+                }
+            
+            CalenderView()
+                .tabItem {
+                    Taps.calender.imageItem
+                    Taps.calender.textItem
+                }
+            
+            DiaryView()
+                .tabItem {
+                    Taps.diary.imageItem
+                    Taps.diary.textItem
+                }
+            
+            OtherView()
+                .tabItem {
+                    Taps.setting.imageItem
+                    Taps.setting.textItem
+                }
+//            StartOddOrEventView()
         }
     }
 }

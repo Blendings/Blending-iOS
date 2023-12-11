@@ -10,7 +10,7 @@ struct BlendingMeunSuggestionItemView: View {
                 .clipShape(Circle())
                 .frame(width: 100.0, height: 100.0)
             Text(meun.name)
-                .font(.caption)
+                .font(.footnoteKyoboHandWriting)
         }
     }
 }

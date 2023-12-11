@@ -15,7 +15,7 @@ struct ProfileSettingView: View {
         NavigationView {
             VStack {
                 Text("연결 성공\n프로필을 입력해주세요")
-                    .font(.title)
+                    .font(.titleKyoboHandWriting)
                     .lineSpacing(10)
                 CustomAuthTextField(placeholder: "이름", text: $name)
 

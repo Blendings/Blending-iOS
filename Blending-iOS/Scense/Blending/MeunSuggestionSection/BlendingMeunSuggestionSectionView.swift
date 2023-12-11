@@ -4,7 +4,7 @@ struct BlendingMeunSuggestionSectionView: View {
     var body: some View {
         VStack {
             Text("\(User.shared.username)님 이런 것은 어떤가요?")
-                .font(.headline)
+                .font(.headlineKyoboHandWriting)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 16.0)
             ScrollView(.horizontal, showsIndicators: false) {

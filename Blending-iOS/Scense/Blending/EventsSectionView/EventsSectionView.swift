@@ -5,11 +5,11 @@ struct EventsSectionView: View {
         VStack {
             HStack {
                 Text("Event")
-                    .font(.headline)
+                    .font(.headlineKyoboHandWriting)
                 Spacer()
                 Button("모두 보기") {}
                     .accentColor(.red)
-                    .font(.subheadline)
+                    .font(.subheadlineKyoboHandWriting)
             }
             .padding(.horizontal, 16.0)
             ScrollView(.horizontal, showsIndicators: false) {
@@ -37,10 +37,10 @@ struct EventsSectionItemView: View {
                 .clipped()
             Text(event.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.headline)
+                .font(.headlineKyoboHandWriting)
             Text(event.description)
                 .lineLimit(1)
-                .font(.callout)
+                .font(.calloutKyoboHandWriting)
                 .frame(maxWidth: .infinity, alignment: .topLeading)
         }.frame(width: UIScreen.main.bounds.width - 32.0)
     }

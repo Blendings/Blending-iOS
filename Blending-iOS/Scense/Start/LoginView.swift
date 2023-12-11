@@ -24,7 +24,7 @@ struct LoginView: View {
                         print("email: \(email)\npassword: \(password)")
                     }) {
                         Text("로그인")
-                            .font(.title)
+                            .font(.titleKyoboHandWriting)
                             .padding()
                             .background(Color.blue)
                             .foregroundColor(.white)
