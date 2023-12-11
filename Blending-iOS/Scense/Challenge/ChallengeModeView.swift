@@ -1,10 +1,3 @@
-//
-//  ChallengeModeView.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 12/5/23.
-//
-
 import SwiftUI
 
 struct ChallengeModeView: View {
@@ -27,11 +20,12 @@ struct ChallengeModeLinkView: View {
     let challengeModeModel: ChallengeMode
 
     var body: some View {
-        NavigationLink(destination: challengeModeModel.destinationView) {
+        NavigationLink(destination: ChallengeModeDetailView(challengeModeModel: challengeModeModel)) {
             ChallengeModeSectionItemView(challengeMode: challengeModeModel)
         }
     }
 }
+
 
 struct ChallengeModeSectionItemView: View {
     let challengeMode: ChallengeMode
@@ -42,12 +36,14 @@ struct ChallengeModeSectionItemView: View {
                 .resizable()
                 .frame(width: 180.0, height: 180.0)
                 .cornerRadius(20)
+                .brightness(challengeMode.successCheck ? 0.0 : -0.7)
             
             Text(challengeMode.title)
                 .foregroundColor(.white)
-                .font(.title2KyoboHandWriting)
+                .font(.title3KyoboHandWriting)
                 .offset(y: 70)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
+
