@@ -1,10 +1,3 @@
-//
-//  CustomAuthTextField.swift
-//  Blending-iOS
-//
-//  Created by 박준하 on 11/9/23.
-//
-
 import SwiftUI
 
 struct CustomAuthTextField: View {
